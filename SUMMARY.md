@@ -15,7 +15,7 @@
 
 ## 常见问题
 
-<!-- * [时间不一致](docs/faq/ntpdate.md) -->
+* [gitbook serve prism](docs/gitbook-server-error-prism.md)
 
 ## 未来
 
