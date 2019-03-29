@@ -8,14 +8,9 @@
 
 ## gitlab pages
 
-* [project不能使用个人域名](docs/project-cannot-set-domain.md)
+* [project不能使用个人域名](post/project-cannot-set-domain.md)
 
 
-
-
-## 常见问题
-
-* [gitbook serve prism](docs/gitbook-server-error-prism.md)
 
 ## 未来
 
