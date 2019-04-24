@@ -4,20 +4,26 @@
 
 * [前言](README.md)
 
-## install
+## 自建gitlab
 
-## gitlab pages
+* install 
 
-* [project不能使用个人域名](post/project-cannot-set-domain.md)
+    * [docker安装gitlab](post/install-gitlab-with-docker.md)
 
+* protected branches
+    * [不能push到仓库](post/not-allowed-to-push-code-to-protected-branches.md)
+    * [gitlab 设置了 protected branches](post/gitlab-protected-branches.md)
+
+## gitlab.com
+
+* gitlab pages 
+
+    * [project不能使用个人域名](post/project-cannot-set-domain.md)
 
 
 ## 未来
 
-<!-- * [我的ceph探险之旅](https://b.qqbb.app/tags/ceph/) -->
-<!-- * [Ceph Handbook](https://eiuapp/swift-handbook/) -->
 
 ## 相关资源
 
-<!-- - [ceph技术工具与资源](docs/tech_resource.md) -->
 
