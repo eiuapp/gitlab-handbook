@@ -3,6 +3,8 @@ https://docs.gitlab.com/ee/install/docker.html
 
 拉取镜像
 
+https://hub.docker.com/r/gitlab/gitlab-ce/tags
+
 ```bash
 docker pull gitlab/gitlab-ce:11.10.0-ce.0
 ```

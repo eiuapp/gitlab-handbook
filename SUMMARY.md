@@ -13,6 +13,7 @@
 * protected branches
     * [不能push到仓库](post/not-allowed-to-push-code-to-protected-branches.md)
     * [gitlab 设置了 protected branches](post/gitlab-protected-branches.md)
+    * [gitlab域名修改](post/gitlab-change-url.md)
 
 ## gitlab.com
 
