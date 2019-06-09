@@ -15,11 +15,15 @@
     * [不能push到仓库](post/not-allowed-to-push-code-to-protected-branches.md)
     * [gitlab 设置了 protected branches](post/gitlab-protected-branches.md)
     * [gitlab域名修改](post/gitlab-change-url.md)
+
 * gitlab-runner
     * [gitlab-runner安装与使用](post/gitlab-runner.md)
 
 * common faq
     * [gitlab faq](post/gitlab-faq.md)
+
+* gitlab CICD
+    * [gitlab cicd 以 nodejs 项目为例](post/gitlab-node-project-cicd.md)
 
 ## gitlab.com ##
 
