@@ -18,7 +18,8 @@
 
 * gitlab-runner
     * [gitlab-runner安装与使用](post/gitlab-runner.md)
-
+    * [gitlab-runner先启动报错](post/gitlab-runner-startup-but-gitlab-ce-not-startup.md)
+    
 * common faq
     * [gitlab faq](post/gitlab-faq.md)
 
