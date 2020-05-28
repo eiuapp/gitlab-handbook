@@ -7,7 +7,7 @@
 
 ## 自建gitlab ##
 
-* install 
+* install
 
     * [docker安装gitlab](post/install-gitlab-with-docker.md)
 
@@ -19,16 +19,19 @@
 * gitlab-runner
     * [gitlab-runner安装与使用](post/gitlab-runner.md)
     * [gitlab-runner先启动报错](post/gitlab-runner-startup-but-gitlab-ce-not-startup.md)
-    
+
 * common faq
     * [gitlab faq](post/gitlab-faq.md)
 
 * gitlab CICD
     * [gitlab cicd 以 nodejs 项目为例](post/gitlab-node-project-cicd.md)
 
+* gitlab password
+    * [gitlab change password](post/gitlab-change-password.)
+
 ## gitlab.com ##
 
-* gitlab pages 
+* gitlab pages
 
     * [project不能使用个人域名](post/project-cannot-set-domain.md)
 
@@ -37,5 +40,3 @@
 
 
 ## 相关资源 ##
-
-
