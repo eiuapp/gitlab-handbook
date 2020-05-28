@@ -1,0 +1,1006 @@
+
+<!DOCTYPE HTML>
+<html lang="zh-hans" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>gitlab cicd 以 nodejs 项目为例 · Gitlab Handbook - Gitlab 实践指南 by eiuapp</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="eiuapp">
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-splitter/splitter.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-page-toc-button/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-back-to-top-button/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search-plus/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-tbfed-pagefooter/footer.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-prism/prism-ghcolors.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-lightbox/css/lightbox.min.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    
+
+    
+        <link rel="shortcut icon" href='../favicon.ico' type="image/x-icon">
+    
+    
+        <link rel="bookmark" href='../favicon.ico' type="image/x-icon">
+    
+    
+    
+
+    <style>
+    @media only screen and (max-width: 640px) {
+        .book-header .hidden-mobile {
+            display: none;
+        }
+    }
+    </style>
+    <script>
+        window["gitbook-plugin-github-buttons"] = {"repo":"eiuapp/gitlab-handbook","types":["star"],"size":"small"};
+    </script>
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="输入并搜索" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+    
+        
+        <li>
+            <a href="https://eiuapp.gitlib.io/gitlab-handbook/" target="_blank" class="custom-link">Gitlab Handbook</a>
+        </li>
+    
+    
+
+    
+    <li class="divider"></li>
+    
+
+    
+        
+        <li class="header">序言</li>
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                        <b>1.1.</b>
+                    
+                    前言
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="env.html">
+            
+                <a href="env.html">
+            
+                    
+                        <b>1.2.</b>
+                    
+                    环境
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">自建gitlab</li>
+        
+        
+    
+        <li class="chapter " data-level="2.1" >
+            
+                <span>
+            
+                    
+                        <b>2.1.</b>
+                    
+                    install
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.1.1" data-path="install-gitlab-with-docker.html">
+            
+                <a href="install-gitlab-with-docker.html">
+            
+                    
+                        <b>2.1.1.</b>
+                    
+                    docker安装gitlab
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2" >
+            
+                <span>
+            
+                    
+                        <b>2.2.</b>
+                    
+                    protected branches
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.2.1" data-path="not-allowed-to-push-code-to-protected-branches.html">
+            
+                <a href="not-allowed-to-push-code-to-protected-branches.html">
+            
+                    
+                        <b>2.2.1.</b>
+                    
+                    不能push到仓库
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.2" data-path="gitlab-protected-branches.html">
+            
+                <a href="gitlab-protected-branches.html">
+            
+                    
+                        <b>2.2.2.</b>
+                    
+                    gitlab 设置了 protected branches
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.3" data-path="gitlab-change-url.html">
+            
+                <a href="gitlab-change-url.html">
+            
+                    
+                        <b>2.2.3.</b>
+                    
+                    gitlab域名修改
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3" >
+            
+                <span>
+            
+                    
+                        <b>2.3.</b>
+                    
+                    gitlab-runner
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.3.1" data-path="gitlab-runner.html">
+            
+                <a href="gitlab-runner.html">
+            
+                    
+                        <b>2.3.1.</b>
+                    
+                    gitlab-runner安装与使用
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3.2" data-path="gitlab-runner-startup-but-gitlab-ce-not-startup.html">
+            
+                <a href="gitlab-runner-startup-but-gitlab-ce-not-startup.html">
+            
+                    
+                        <b>2.3.2.</b>
+                    
+                    gitlab-runner先启动报错
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4" >
+            
+                <span>
+            
+                    
+                        <b>2.4.</b>
+                    
+                    common faq
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.4.1" data-path="gitlab-faq.html">
+            
+                <a href="gitlab-faq.html">
+            
+                    
+                        <b>2.4.1.</b>
+                    
+                    gitlab faq
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.5" >
+            
+                <span>
+            
+                    
+                        <b>2.5.</b>
+                    
+                    gitlab CICD
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter active" data-level="2.5.1" data-path="gitlab-node-project-cicd.html">
+            
+                <a href="gitlab-node-project-cicd.html">
+            
+                    
+                        <b>2.5.1.</b>
+                    
+                    gitlab cicd 以 nodejs 项目为例
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.6" >
+            
+                <span>
+            
+                    
+                        <b>2.6.</b>
+                    
+                    gitlab password
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.6.1" data-path="gitlab-change-password.">
+            
+                <span>
+            
+                    
+                        <b>2.6.1.</b>
+                    
+                    gitlab change password
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="header">gitlab.com</li>
+        
+        
+    
+        <li class="chapter " data-level="3.1" >
+            
+                <span>
+            
+                    
+                        <b>3.1.</b>
+                    
+                    gitlab pages
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.1.1" data-path="project-cannot-set-domain.html">
+            
+                <a href="project-cannot-set-domain.html">
+            
+                    
+                        <b>3.1.1.</b>
+                    
+                    project不能使用个人域名
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="header">未来</li>
+        
+        
+    
+
+    
+        
+        <li class="header">相关资源</li>
+        
+        
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            本书使用 GitBook 发布
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >gitlab cicd 以 nodejs 项目为例</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div class="search-plus" id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <p>gitlab cicd + node project</p>
+<p><a href="https://segmentfault.com/a/1190000017174825" target="_blank">https://segmentfault.com/a/1190000017174825</a></p>
+<p><a href="https://docs.gitlab.com/ee/ci/ssh_keys/README.html#ssh-keys-when-using-the-docker-executor" target="_blank">https://docs.gitlab.com/ee/ci/ssh_keys/README.html#ssh-keys-when-using-the-docker-executor</a></p>
+<h2 id="&#x524D;&#x7AEF;&#x90E8;&#x5206;&#x7684;-gitlab-ciyaml">&#x524D;&#x7AEF;&#x90E8;&#x5206;&#x7684; gitlab-ci.yaml</h2>
+<p><a href="https://docs.gitlab.com/ce/ci/yaml/#before_script-and-after_script" target="_blank">https://docs.gitlab.com/ce/ci/yaml/#before_script-and-after_script</a></p>
+<p><code>before_script</code> &#x7684;&#x5185;&#x5BB9;&#x6709;&#x8C03;&#x6574;, &#x56E0;&#x4E3A;, &#x6211;&#x4EEC;&#x53EA;&#x9700;&#x8981;&#x5728; <code>deploy_test</code> &#x548C; <code>deploy_production</code> &#x7684;&#x65F6;&#x5019;, &#x8FD0;&#x884C;&#x5C31;&#x53EF;&#x4EE5;&#x4E86;.</p>
+<p>&#x7136;&#x540E;,&#x56E0;&#x4E3A; <code>deploy_test</code> &#x548C; <code>deploy_production</code> &#x7684;&#x673A;&#x5668;&#x4E0D;&#x540C;, &#x6240;&#x4EE5;,&#x8BBE;&#x7F6E;&#x4E86;2&#x4EFD;<code>SSH_KNOWN_HOSTS</code> &#x548C; <code>SSH_PRIVATE_KEY</code></p>
+<p>&#x539F;&#x7406;: &#x628A;&#x4E00;&#x4EFD;&#x80FD;&#x591F;&#x5B8C;&#x6210;&#x514D;&#x5BC6; scp &#x6216; ssh &#x7684;&#x673A;&#x5668;&#x5BC6;&#x94A5;&#x4E0E;&#x5BF9;&#x5E94;&#x7684;&#x5BC6;&#x94A5;&#x6307;&#x7EB9;&#x653E;&#x5230; gitlab JOB&#x542F;&#x52A8;&#x7684; gitlab-runner container&#x4E2D;, &#x8BA9; gitlab-runner container &#x6765;&#x5B8C;&#x6210;&#x8FD9;&#x4E2A;&#x4E8B;&#x60C5;.</p>
+<p><strong>&#x6CE8;&#x610F;</strong> &#x8FD9;&#x91CC;&#x914D;&#x7F6E;&#x7684; <code>SSH_KNOWN_HOSTS</code> &#x548C; <code>SSH_PRIVATE_KEY</code> &#x662F; gitlab project &#x7684; Maintainer &#x6216; &#x4EE5;&#x4E0A;&#x6743;&#x9650;&#x7684;&#x6240;&#x6709;&#x8005;&#x53EF;&#x67E5;. &#x4E5F;&#x5C31;&#x662F;&#x610F;&#x5473;&#x7740;, scp,ssh&#x5BF9;&#x5E94;&#x7684;&#x673A;&#x5668;,&#x4F1A;&#x6709;&#x6743;&#x88AB;&#x5176;&#x63A7;&#x5236;.</p>
+<h3 id="sshknownhosts-&#x7684;&#x6765;&#x6E90;"><code>SSH_KNOWN_HOSTS</code> &#x7684;&#x6765;&#x6E90;</h3>
+<p><a href="https://liam.page/2018/01/24/ssh-keyscan/" target="_blank">https://liam.page/2018/01/24/ssh-keyscan/</a></p>
+<p>&#x53EF;&#x89C1;, ssh-keyscan &#x662F;&#x6765;&#x83B7;&#x53D6; &#x5BC6;&#x94A5;&#x6307;&#x7EB9;&#x7684;.</p>
+<p><code>ssh-keyscan IP</code></p>
+<p>&#x5982;&#x679C;&#x662F;&#x591A;&#x4E2A;IP, &#x5219;&#x5199;&#x8FDB;&#x6587;&#x4EF6;&#x91CC;.</p>
+<pre class="language-"><code class="lang-bash">ubuntu@utuntu:~$ <span class="token function">cat</span> hosts.txt 
+<span class="token number">192.168</span>.168.137
+<span class="token number">192.168</span>.168.138
+<span class="token number">120.77</span>.***.***
+ubuntu@utuntu:~$ ssh-keyscan -f hosts.txt
+</code></pre>
+<h3 id="sshprivatekey"><code>SSH_PRIVATE_KEY</code></h3>
+<p><code>cat ~/.ssh/id_rsa</code> </p>
+<p>&#x5177;&#x4F53;&#x5730;,&#x6211;&#x7684; .gitlab-ci.yml &#x6587;&#x4EF6;&#x5982;&#x4E0B;:</p>
+<h2 id="&#x540E;&#x7AEF;&#x90E8;&#x5206;-gitlab-ci">&#x540E;&#x7AEF;&#x90E8;&#x5206; gitlab ci</h2>
+<h3 id="&#x540E;&#x7AEF;&#x4F7F;&#x7528;-docker-&#x76F4;&#x63A5;&#x5728;-host-&#x4E0A;&#x542F;&#x7528;&#x670D;&#x52A1;">&#x540E;&#x7AEF;&#x4F7F;&#x7528; docker &#x76F4;&#x63A5;&#x5728; host &#x4E0A;&#x542F;&#x7528;&#x670D;&#x52A1;</h3>
+<h4 id="docker-&#x670D;&#x52A1;&#x5355;&#x72EC;&#x542F;&#x52A8;&#x80FD;&#x6B63;&#x5E38;&#x8FD0;&#x884C;">docker &#x670D;&#x52A1;&#x5355;&#x72EC;&#x542F;&#x52A8;&#x80FD;&#x6B63;&#x5E38;&#x8FD0;&#x884C;</h4>
+<h5 id="dockerfile">Dockerfile</h5>
+<p>&#x8FD9;&#x91CC;&#x7684; Dockerfile &#x53C2;&#x8003;&#x4E86;</p>
+<ul>
+<li><a href="https://pm2.io/doc/en/runtime/integration/docker/" target="_blank">https://pm2.io/doc/en/runtime/integration/docker/</a></li>
+<li><a href="https://www.jianshu.com/p/ab76ba86eafc" target="_blank">https://www.jianshu.com/p/ab76ba86eafc</a></li>
+</ul>
+<pre class="language-"><code>FROM keymetrics/pm2:latest-alpine
+
+# Bundle APP files
+RUN mkdir -p /home/service
+WORKDIR /home/service
+
+COPY . /home/service
+# COPY src src/
+# COPY package.json .
+# COPY ecosystem.config.js .
+
+# Install app dependencies
+ENV NPM_CONFIG_LOGLEVEL warn
+RUN npm install
+
+# Expose the listening port of your app
+EXPOSE 3011
+
+# Show current folder structure in logs
+RUN ls -al -R
+
+CMD [ &quot;pm2-runtime&quot;, &quot;start&quot;, &quot;ecosystem.config.js&quot;, &quot;--only&quot;, &quot;server-dev&quot; ]
+</code></pre><h5 id="&#x5236;&#x4F5C;docker-image">&#x5236;&#x4F5C;docker image</h5>
+<pre class="language-"><code class="lang-bash">docker build -t lvchuang-server-test4 <span class="token builtin class-name">.</span>
+</code></pre>
+<h5 id="docker-run">docker run</h5>
+<pre class="language-"><code class="lang-bash">docker run -d --name lvchuang-server -p <span class="token number">2011</span>:3011 lvchuang-server-test4
+</code></pre>
+<h5 id="&#x9A8C;&#x8BC1;">&#x9A8C;&#x8BC1;</h5>
+<p>chrome: <a href="http://192.168.168.137:2011/GetStage" target="_blank">http://192.168.168.137:2011/GetStage</a></p>
+<h4 id="host-&#x5B89;&#x88C5;-gitlab-ci-multi-runner">host &#x5B89;&#x88C5; gitlab-ci-multi-runner</h4>
+<pre class="language-"><code class="lang-bash"><span class="token function">sudo</span> <span class="token function">apt-get</span> <span class="token function">install</span> gitlab-ci-multi-runner
+</code></pre>
+<h4 id="&#x628A;-gitlab-runner-&#x7528;&#x6237;&#x52A0;&#x5165;-docker-&#x7EC4;">&#x628A; gitlab-runner &#x7528;&#x6237;&#x52A0;&#x5165; docker &#x7EC4;</h4>
+<pre class="language-"><code class="lang-bash"><span class="token function">sudo</span> <span class="token function">usermod</span> -aG docker gitlab-runner
+</code></pre>
+<h4 id="gitlab-runner-register">gitlab-runner register</h4>
+<pre class="language-"><code class="lang-bash">gitlab-ci-multi-runner register
+</code></pre>
+<p>&#x6CE8;&#x518C;&#x8FC7;&#x7A0B;&#x4E2D;,executor &#x9009;&#x62E9; shell. &#x5177;&#x4F53;&#x5B8C;&#x6210;&#x540E;, &#x53EF;&#x89C1; config.toml &#x6587;&#x4EF6;.</p>
+<pre class="language-"><code>ubuntu@utuntu:~/lcnx/local/lvchuang-server$ cat ~/.gitlab-runner/config.toml 
+concurrent = 1
+check_interval = 0
+
+[[runners]]
+  name = &quot;api-deploy-runner&quot;
+  url = &quot;http://192.168.168.137/&quot;
+  token = &quot;obhhKvSY4s5M1pGp49mf&quot;
+  executor = &quot;shell&quot;
+  [runners.cache]
+</code></pre><h4 id="gitlab-runner-&#x9A8C;&#x8BC1;">gitlab-runner &#x9A8C;&#x8BC1;</h4>
+<pre class="language-"><code class="lang-bash">gitlab-ci-multi-runner register
+gitlab-ci-multi-runner --help
+<span class="token function">sudo</span> gitlab-ci-multi-runner status
+gitlab-ci-multi-runner verify
+gitlab-ci-multi-runner list
+</code></pre>
+<p>&#x5177;&#x4F53;&#x6548;&#x679C;&#x770B;&#x4E00;&#x4E0B;</p>
+<pre class="language-"><code class="lang-bash">ubuntu@utuntu:~/lcnx/local/lvchuang-server$ <span class="token operator">!</span><span class="token number">1321</span>
+<span class="token function">sudo</span> gitlab-ci-multi-runner status
+<span class="token punctuation">[</span>sudo<span class="token punctuation">]</span> password <span class="token keyword">for</span> ubuntu: 
+gitlab-runner: Service is running<span class="token operator">!</span>
+ubuntu@utuntu:~/lcnx/local/lvchuang-server$ gitlab-ci-multi-runner verify
+WARNING: Running <span class="token keyword">in</span> user-mode.                     
+WARNING: The user-mode requires you to manually start builds processing: 
+WARNING: $ gitlab-runner run                       
+WARNING: Use <span class="token function">sudo</span> <span class="token keyword">for</span> system-mode:                 
+WARNING: $ <span class="token function">sudo</span> gitlab-runner<span class="token punctuation">..</span>.                   
+
+Verifying runner<span class="token punctuation">..</span>. is alive                        <span class="token assign-left variable">runner</span><span class="token operator">=</span>obhhKvSY
+Verifying runner<span class="token punctuation">..</span>. is alive                        <span class="token assign-left variable">runner</span><span class="token operator">=</span>k7U2n9Sb
+ubuntu@utuntu:~/lcnx/local/lvchuang-server$ gitlab-ci-multi-runner list
+Listing configured runners                          <span class="token assign-left variable">ConfigFile</span><span class="token operator">=</span>/home/ubuntu/.gitlab-runner/config.toml
+api-deploy-runner                                   <span class="token assign-left variable">Executor</span><span class="token operator">=</span>shell <span class="token assign-left variable">Token</span><span class="token operator">=</span>obhhKvSY4s5M1pGp49mf <span class="token assign-left variable">URL</span><span class="token operator">=</span>http://192.168.168.137/
+ssh-multi-runner                                    <span class="token assign-left variable">Executor</span><span class="token operator">=</span>ssh <span class="token assign-left variable">Token</span><span class="token operator">=</span>k7U2n9Sb8ErrXa5nzLDr <span class="token assign-left variable">URL</span><span class="token operator">=</span>http://192.168.168.137/
+ubuntu@utuntu:~/lcnx/local/lvchuang-server$
+</code></pre>
+<h4 id="gitlab-ciyml">.gitlab-ci.yml</h4>
+<p>tag &#x5199;&#x4E4B;&#x524D; gitlab-runner register &#x65F6;&#x586B;&#x5199;&#x7684;&#x5BF9;&#x5E94;.</p>
+<p><strong>&#x6CE8;&#x610F;</strong> &#x4E0B;&#x7684;script&#x4E2D;,&#x5199;&#x7684;&#x5C31;&#x662F; docker &#x76F8;&#x5173;&#x547D;&#x4EE4;</p>
+<pre class="language-"><code>image: node:11.15.0
+
+stages:
+  - deploy_test
+
+cache:
+  key: ${CI_BUILD_REF_NAME}
+  paths:
+    - node_modules/
+
+before_script:
+  - export PATH=/usr/local/bin:$PATH
+
+# &#x90E8;&#x7F72;&#x6D4B;&#x8BD5;&#x670D;&#x52A1;&#x5668;
+deploy_test:
+  stage: deploy_test
+  tags:
+    - node-api-deploy-test
+  only:
+    - dev
+    - master
+  script:
+    - &apos;echo &quot;deploy_test&quot;&apos;
+    - &apos;echo $PWD &amp;&amp; ls ~&apos;
+    - docker cp ./ lvchuang-server:/home/service
+    - docker restart lvchuang-server
+</code></pre><h4 id="git-push">git push</h4>
+<p>&#x66F4;&#x65B0;&#x4EE3;&#x7801;, git push &#x81F3; repo </p>
+<h4 id="&#x89C2;&#x5BDF;-gitalbcom">&#x89C2;&#x5BDF; gitalb.com</h4>
+<p>&#x9009;&#x62E9;&#x597D; runner 
+&#x4ECE; gitlab page: <a href="http://192.168.168.137" target="_blank">http://192.168.168.137</a> &#x4E2D;&#x770B;&#x5230;, pipeline &#x4E0B;&#x7684; job &#x662F; pending &#x72B6;&#x6001;&#x7684;. &#x4E5F;&#x5C31;&#x662F;&#x610F;&#x5473;&#x7740;, &#x6CA1;&#x542F;&#x52A8;.</p>
+<h4 id="gitlab-ci-multi-runner-run">gitlab-ci-multi-runner run</h4>
+<pre class="language-"><code>ubuntu@utuntu:~/lcnx/local/lvchuang-server$ gitlab-ci-multi-runner run
+Starting multi-runner from /home/ubuntu/.gitlab-runner/config.toml ...  builds=0
+WARNING: Running in user-mode.                     
+WARNING: Use sudo for system-mode:                 
+WARNING: $ sudo gitlab-runner...                   
+
+Configuration loaded                                builds=0
+Metrics server disabled                            
+Checking for jobs... received                       job=302 repo_url=http://192.168.168.137/zengyunlong/test4.git runner=obhhKvSY
+Job succeeded                                       job=302 project=12 runner=obhhKvSY
+Checking for jobs... received                       job=303 repo_url=http://192.168.168.137/zengyunlong/test4.git runner=obhhKvSY
+Job succeeded                                       job=303 project=12 runner=obhhKvSY
+^CAll workers stopped. Can exit now                   builds=0
+WARNING: Requested service stop: interrupt          builds=0
+ubuntu@utuntu:~/lcnx/local/lvchuang-server$
+</code></pre><p>&#x76F8;&#x5E94;&#x5730;, &#x770B;&#x5230; pending &#x5DF2;&#x7ECF;&#x5F00;&#x59CB; running &#x4E86;.</p>
+<p>&#x5177;&#x4F53;&#x65E5;&#x5FD7;&#x5982;&#x4E0B;:</p>
+<pre class="language-"><code>Running with gitlab-runner 10.5.0 (10.5.0)
+  on api-deploy-runner obhhKvSY
+Using Shell executor...
+Running on utuntu...
+Fetching changes...
+HEAD is now at c09fdc9 fix
+From http://192.168.168.137/zengyunlong/test4
+   c09fdc9..10f12d7  master     -&gt; origin/master
+Checking out 10f12d72 as master...
+Skipping Git submodules setup
+Checking cache for master...
+Successfully extracted cache
+$ export PATH=/usr/local/bin:$PATH
+$ echo &quot;deploy_test&quot;
+deploy_test
+$ echo $PWD &amp;&amp; ls ~
+/home/ubuntu/lcnx/local/lvchuang-server/builds/obhhKvSY/0/zengyunlong/test4
+default.conf
+docker
+env
+hosts.txt
+index.html
+lcnx
+test-dev
+$ docker cp ./ lvchuang-server:/home/service
+$ docker restart lvchuang-server
+lvchuang-server
+Creating cache master...
+WARNING: node_modules/: no matching files          
+Archive is up to date!                             
+Created cache
+Job succeeded
+</code></pre><p>&#x4ECE;&#x65E5;&#x5FD7;&#x91CC;&#x770B;&#x51FA;, &#x5F53; executor &#x4E3A; shell &#x65F6;, &#x5B9E;&#x9645;&#x4E0A;, gitlab-runner &#x662F;&#x5728;host&#x4E0A;&#x6267;&#x884C;&#x547D;&#x4EE4;&#x7684;. 
+&#x6240;&#x4EE5;, &#x5728; .gitlab-ci.yml &#x4E2D;&#x8FD0;&#x884C;&#x7684;&#x547D;&#x4EE4;,&#x5B9E;&#x9645;&#x4E0A;&#x5C31;&#x662F;&#x4EE5; gitlab-runner &#x8FD9;&#x4E2A;&#x7528;&#x6237;&#x5728;host&#x4E0A;&#x9762;&#x8FD0;&#x884C;.</p>
+<h4 id="gitlab-runner-&#x5982;&#x4F55;&#x81EA;&#x542F;&#x52A8;">gitlab-runner &#x5982;&#x4F55;&#x81EA;&#x542F;&#x52A8;</h4>
+<p>&#x56E0;&#x4E3A;&#x4E0A;&#x9762;&#x7684;&#x8FD0;&#x884C;, &#x9700;&#x8981;, &#x624B;&#x52A8;&#x5730;&#x5728;&#x547D;&#x4EE4;&#x884C;&#x4E0B;&#x6267;&#x884C; ``, &#x6240;&#x4EE5;&#x6211;&#x4EEC;&#x9700;&#x8981;&#x66F4;&#x8FDB;&#x4E00;&#x6B65;,&#x8BA9;&#x7CFB;&#x7EDF;&#x81EA;&#x52A8;&#x5B8C;&#x6210;,&#x8FD9;&#x4E2A;&#x64CD;&#x4F5C;.</p>
+<p>&#x53C2;&#x8003;:</p>
+<ul>
+<li><a href="https://www.jianshu.com/p/2b43151fb92e" target="_blank">https://www.jianshu.com/p/2b43151fb92e</a></li>
+<li><a href="https://www.cnblogs.com/jiukun/p/7481287.html" target="_blank">https://www.cnblogs.com/jiukun/p/7481287.html</a> (&#x7279;&#x522B;&#x662F; gitlab-ci-multi-runner run, install, start, stop, restart &#x4E4B;&#x95F4;&#x7684;&#x5173;&#x7CFB;&#x4ECB;&#x7ECD;) </li>
+<li><a href="https://blog.csdn.net/xl_lx/article/details/78329019" target="_blank">https://blog.csdn.net/xl_lx/article/details/78329019</a></li>
+<li><a href="https://www.cnblogs.com/cnundefined/p/7095368.html" target="_blank">https://www.cnblogs.com/cnundefined/p/7095368.html</a></li>
+</ul>
+<h5 id="install-&#x5305;&#x88C5;">install &#x5305;&#x88C5;</h5>
+<pre class="language-"><code class="lang-bash">ubuntu@utuntu:~/lcnx/local/test/test4$ <span class="token function">sudo</span> gitlab-ci-multi-runner <span class="token function">install</span>  -n  <span class="token string">&quot;jiukun_self_runner_2&quot;</span>  -d <span class="token string">&quot;/home/ubuntu/lcnx/local/test/test4&quot;</span>  -c <span class="token string">&quot;/home/ubuntu/.gitlab-runner/config.toml&quot;</span> -u ubuntu
+</code></pre>
+<p>&#x6267;&#x884C;&#x4E0A;&#x8FF0;&#x5B89;&#x88C5;&#x547D;&#x4EE4;&#x65F6;&#xFF0C;gitlab-ci-multi-runner&#x540E;&#x53F0;&#x5B9E;&#x9645;&#x662F;&#x5C06;run&#x547D;&#x4EE4;&#x5199;&#x5165;/etc/systemd/system/jiukun_self_runner_2.service&#x6587;&#x4EF6;&#xFF0C;&#x4F7F;&#x4E4B;&#x6210;&#x4E3A;&#x4E00;&#x4E2A;&#x5355;&#x72EC;&#x7684;&#x670D;&#x52A1;</p>
+<h5 id="&#x542F;&#x52A8;&#x670D;&#x52A1;">&#x542F;&#x52A8;&#x670D;&#x52A1;</h5>
+<pre class="language-"><code class="lang-bash">ubuntu@utuntu:~/lcnx/local/test/test4$ gitlab-ci-multi-runner start -n jiukun_self_runner_2
+FATAL: Please run the commands as root             
+ubuntu@utuntu:~/lcnx/local/test/test4$ <span class="token function">sudo</span> gitlab-ci-multi-runner start -n jiukun_self_runner_2
+ubuntu@utuntu:~/lcnx/local/test/test4$ <span class="token function">ls</span> /etc/systemd/system/jiukun*
+jiukun_self_runner_2.service
+</code></pre>
+<h5 id="&#x9A8C;&#x8BC1;&#x662F;&#x5426;&#x542F;&#x52A8;">&#x9A8C;&#x8BC1;&#x662F;&#x5426;&#x542F;&#x52A8;</h5>
+<pre class="language-"><code class="lang-bash">ubuntu@utuntu:~/lcnx/local/test/test4$ gitlab-ci-multi-runner status
+FATAL: Please run the commands as root             
+ubuntu@utuntu:~/lcnx/local/test/test4$ <span class="token function">sudo</span> gitlab-ci-multi-runner status
+gitlab-runner: Service is running<span class="token operator">!</span>
+ubuntu@utuntu:~/lcnx/local/test/test4$ <span class="token function">sudo</span> gitlab-ci-multi-runner status -n jiukun_self_runner_2
+jiukun_self_runner_2: Service is running<span class="token operator">!</span>
+ubuntu@utuntu:~/lcnx/local/test/test4$ <span class="token function">sudo</span> gitlab-runner list --config /home/ubuntu/.gitlab-runner/config.toml 
+Listing configured runners                          <span class="token assign-left variable">ConfigFile</span><span class="token operator">=</span>/home/ubuntu/.gitlab-runner/config.toml
+api-deploy-runner                                   <span class="token assign-left variable">Executor</span><span class="token operator">=</span>shell <span class="token assign-left variable">Token</span><span class="token operator">=</span>obhhKvSY4s5M1pGp49mf <span class="token assign-left variable">URL</span><span class="token operator">=</span>http://192.168.168.137/
+ssh-multi-runner                                    <span class="token assign-left variable">Executor</span><span class="token operator">=</span>ssh <span class="token assign-left variable">Token</span><span class="token operator">=</span>k7U2n9Sb8ErrXa5nzLDr <span class="token assign-left variable">URL</span><span class="token operator">=</span>http://192.168.168.137/
+ubuntu@utuntu:~/lcnx/local/test/test4$ <span class="token function">sudo</span> gitlab-runner verify --config /home/ubuntu/.gitlab-runner/config.toml 
+Running <span class="token keyword">in</span> system-mode.                            
+
+Verifying runner<span class="token punctuation">..</span>. is alive                        <span class="token assign-left variable">runner</span><span class="token operator">=</span>obhhKvSY
+Verifying runner<span class="token punctuation">..</span>. is alive                        <span class="token assign-left variable">runner</span><span class="token operator">=</span>k7U2n9Sb
+ubuntu@utuntu:~/lcnx/local/test/test4$ <span class="token function">sudo</span> gitlab-ci-multi-runner status -n jiukun_self_runner_2
+jiukun_self_runner_2: Service is running<span class="token operator">!</span>
+ubuntu@utuntu:~/lcnx/local/test/test4$ <span class="token function">sudo</span> gitlab-ci-multi-runner status -n jiukun_self_runner
+jiukun_self_runner: Service is not running.
+</code></pre>
+<h5 id="&#x7BA1;&#x7406;&#x670D;&#x52A1;">&#x7BA1;&#x7406;&#x670D;&#x52A1;</h5>
+<p>1.&#x6CE8;&#x518C;&#x7684;runner&#x5217;&#x8868;</p>
+<pre class="language-"><code>gitlab-runner list \
+    --config &quot;/etc/gitlab-runner/config_jiukun_test.toml&quot;
+</code></pre><p>2.&#x67E5;&#x770B;runner&#x8FDE;&#x63A5;&#x72B6;&#x6001;</p>
+<pre class="language-"><code>gitlab-runner verify \
+    --config &quot;/etc/gitlab-runner/config_jiukun_test.toml&quot;
+</code></pre><p>3.&#x53D6;&#x6D88;&#x6CE8;&#x518C;&#xFF08;&#x79FB;&#x9664;&#xFF09;</p>
+<pre class="language-"><code>gitlab-runner unregistry \
+    --url http://gitlab.xxxxxx.com/ci \
+    --token 9c1bb50065661ba766023016f6ebf2
+</code></pre><p>&#x4E0D;&#x80FD;&#x76F4;&#x63A5;&#x5728;project&#x7684;web&#x7AEF;&#x8FDB;&#x884C;remove&#x64CD;&#x4F5C;&#xFF0C;&#x5426;&#x5219;&#x8FD9;&#x91CC;&#x4F1A;&#x6267;&#x884C;&#x5931;&#x8D25;</p>
+<p>4.&#x7BA1;&#x7406;gitlab-runner&#x670D;&#x52A1;</p>
+<pre class="language-"><code>gitlab-runner status \
+    -n jiukun_self_runner.service
+</code></pre><p>&#x4E0D;&#x6307;&#x5B9A;&#x670D;&#x52A1;&#x540D;&#xFF0C;&#x5219;&#x9ED8;&#x8BA4;&#x4E3A;gitlab-runner&#x670D;&#x52A1;</p>
+<pre class="language-"><code>gitlab-runner stop \
+    -n jiukun_self_runner.service
+
+gitlab-runner restart \
+    -n jiukun_self_runner.service
+
+gitlab-runner uninstall \
+    -n jiukun_self_runner.service
+</code></pre><p>&#x6267;&#x884C;uninstall&#x4F1A;&#x5378;&#x8F7D;&#x8BE5;&#x670D;&#x52A1;&#xFF0C;&#x4E0E;&#x4E4B;&#x5BF9;&#x5E94;&#x7684;runner&#x5C06;&#x65E0;&#x6CD5;&#x901A;&#x8FC7;&#x8BE5;&#x670D;&#x52A1;&#x8FD0;&#x884C;&#xFF0C;&#x8BF7;&#x786E;&#x4FDD;&#x5BF9;&#x5E94;&#x7684;CI&#x4EFB;&#x52A1;&#x5DF2;&#x505C;&#x6B62;&#x3002;</p>
+<h3 id="&#x540E;&#x7AEF;&#x4F7F;&#x7528;-pm2-&#x76F4;&#x63A5;&#x5728;-host-&#x4E0A;&#x542F;&#x7528;&#x670D;&#x52A1;">&#x540E;&#x7AEF;&#x4F7F;&#x7528; pm2 &#x76F4;&#x63A5;&#x5728; host &#x4E0A;&#x542F;&#x7528;&#x670D;&#x52A1;</h3>
+<p>&#x5927;&#x4F53;&#x4E0E;&#x4E0A;&#x9762;&#x76F8;&#x540C;,&#x5C31;&#x662F;&#x5728;&#x8FD0;&#x884C;&#x547D;&#x4EE4;&#x65F6;,&#x8BB0;&#x5F97;&#x52A0;&#x5165;&#x5230; PATH &#x4E2D;.</p>
+<pre class="language-"><code>before_script:
+  - export PATH=/usr/local/bin:/home/ubuntu/.nvm/versions/node/v10.15.3/bin:/home/ubuntu/.nvm/versions/node/v11.15.0/bin:$PATH
+</code></pre><h2 id="web-gitlab-ciyml">web .gitlab-ci.yml</h2>
+<pre class="language-"><code class="lang-yml">image: node:11.15.0
+
+stages:
+  - install_deps
+  # - test
+  - build
+  - deploy_test
+  - deploy_production
+
+cache:
+  # key: ${CI_BUILD_REF_NAME}
+  paths:
+    - node_modules/
+    - dist/
+
+install_deps:
+  stage: install_deps
+  tags:
+    - my-tag
+  only:
+    - dev
+    - master
+  script:
+    - &apos;echo &quot;install_deps&quot;&apos;
+    - npm install -g cnpm
+    - cnpm install
+
+# &#x8FD0;&#x884C;&#x6D4B;&#x8BD5;&#x7528;&#x4F8B;
+# test:
+#   stage: test
+#   tags:
+#     - my-tag
+#   only:
+#     - dev2
+#     - master
+#   script:
+#     - npm run test
+
+# &#x7F16;&#x8BD1;
+build:
+  stage: build
+  tags:
+    - my-tag
+  only:
+    - dev
+    - master
+  script:
+    - &apos;echo &quot;build&quot;&apos;
+    - npm install -g cnpm
+    - cnpm run alpha
+
+# &#x90E8;&#x7F72;&#x6D4B;&#x8BD5;&#x670D;&#x52A1;&#x5668;
+deploy_test:
+  stage: deploy_test
+  tags:
+    - my-tag
+  only:
+    - dev
+  before_script:
+    - export PATH=/usr/local/bin:$PATH
+    - &apos;which ssh-agent || ( apt-get update -y &amp;&amp; apt-get install openssh-client -y )&apos;
+    - eval $(ssh-agent -s)
+    - ssh-add &lt;(echo &quot;$SSH_PRIVATE_KEY&quot;)
+    - mkdir -p ~/.ssh
+    - chmod 700 ~/.ssh
+    - echo &quot;$SSH_KNOWN_HOSTS&quot; &gt; ~/.ssh/known_hosts
+    - chmod 644 ~/.ssh/known_hosts
+    - &apos;[[ -f /.dockerenv ]] &amp;&amp; echo -e &quot;Host *\\n\\tStrictHostKeyChecking no\\n\\n&quot; &gt; ~/.ssh/config&apos;
+  script:
+    - &apos;echo &quot;deploy_test&quot;&apos;
+    - scp -P 2222 -r dist/ root@192.168.168.137:/home/ubuntu/lcnx/local/lvchuang-web/
+
+# &#x90E8;&#x7F72;&#x751F;&#x4EA7;&#x670D;&#x52A1;&#x5668;
+deploy_production:
+  stage: deploy_production
+  tags:
+    - my-tag
+  only:
+    - master
+  before_script:
+    - export PATH=/usr/local/bin:$PATH
+    - &apos;which ssh-agent || ( apt-get update -y &amp;&amp; apt-get install openssh-client -y )&apos;
+    - eval $(ssh-agent -s)
+    - ssh-add &lt;(echo &quot;$SSH_PRIVATE_KEY_LCNX&quot;)
+    - mkdir -p ~/.ssh
+    - chmod 700 ~/.ssh
+    - echo &quot;$SSH_KNOWN_HOSTS_LCNX&quot; &gt; ~/.ssh/known_hosts
+    - chmod 644 ~/.ssh/known_hosts
+    - &apos;[[ -f /.dockerenv ]] &amp;&amp; echo -e &quot;Host *\\n\\tStrictHostKeyChecking no\\n\\n&quot; &gt; ~/.ssh/config&apos;
+  script:
+    # - bash scripts/deploy/deploy.sh
+    - &apos;echo &quot;deploy_test&quot;&apos;
+    - scp -r dist/ lcnx@120.77.39.189:/home/lcnx/lcnx_eiss/lvchuang-web/dist/
+</code></pre>
+<footer class="page-footer"><span class="copyright"><p><a href="https://github.com/eiuapp/gitlab-handbook" target="_blank">Gitlab&#x5B9E;&#x8DF5;&#x6307;&#x5357;</a> | <a href="https://github.com/eiuapp/gitlab-handbook" target="_blank">Gitlab&#x5B9E;&#x8DF5;&#x6307;&#x5357;</a></p><p><a href="https://res.cloudinary.com/dmtixvmgt/image/upload/v1539022273/wechat-qrcode_cml5dm.jpg" data-lightbox="2fd927ee-fa64-4eca-8ed5-6bd72b573a3c" target="_blank">&#x70B9;&#x51FB;&#x5173;&#x6CE8;&#x3010;servicemesher&#x3011;&#x516C;&#x4F17;&#x53F7;&#x56DE;&#x590D;&#x3010;&#x52A0;&#x7FA4;&#x3011;&#x52A0;&#x5165;&#x5B66;&#x4E60;&#x7FA4; </a> | </p>Copyright &#xA9; <a href="https://eiuapp.github.io" target="_blank">eiuapp.github.io</a> 2017-2019 all right reserved&#xFF0C;powered by Gitbook</span><span class="footer-modification"> Updated at 
+2020-05-28 03:07:11
+</span></footer>
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"gitlab cicd 以 nodejs 项目为例","level":"2.5.1","depth":2,"next":{"title":"gitlab password","level":"2.6","depth":1,"ref":"","articles":[{"title":"gitlab change password","level":"2.6.1","depth":2,"path":"post/gitlab-change-password.","ref":"post/gitlab-change-password.","articles":[]}]},"previous":{"title":"gitlab CICD","level":"2.5","depth":1,"ref":"","articles":[{"title":"gitlab cicd 以 nodejs 项目为例","level":"2.5.1","depth":2,"path":"post/gitlab-node-project-cicd.md","ref":"post/gitlab-node-project-cicd.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["github","codesnippet","splitter","page-toc-button","editlink","back-to-top-button","-lunr","-search","search-plus","github-buttons@2.1.0","favicon@^0.0.2","tbfed-pagefooter@^0.0.1","3-ba","theme-default","-highlight","prism","prism-themes","sitemap-general","lightbox","adsense","ga"],"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"<p><a href=https://github.com/eiuapp/gitlab-handbook>Gitlab实践指南</a> | <a href=https://github.com/eiuapp/gitlab-handbook>Gitlab实践指南</a></p><p><a href=https://res.cloudinary.com/dmtixvmgt/image/upload/v1539022273/wechat-qrcode_cml5dm.jpg data-lightbox=2fd927ee-fa64-4eca-8ed5-6bd72b573a3c>点击关注【servicemesher】公众号回复【加群】加入学习群 </a> | </p>Copyright © <a href=https://eiuapp.github.io>eiuapp.github.io</a> 2017-2019","modify_label":" Updated at ","modify_format":"YYYY-MM-DD HH:mm:ss"},"prism":{"lang":{"shell":"bash"},"css":["prism-themes/themes/prism-ghcolors.css"]},"github":{"url":"https://eiuapp.gitlib.io/gitlab-handbook/"},"editlink":{"label":"编辑本页","multilingual":false,"base":"https://github.com/eiuapp/gitlab-handbook/blob/master/"},"splitter":{},"adsense":{"client":"ca-pub-4029167986768912","slot":"2445941692","format":"auto","element":".page-inner section","position":"bottom"},"codesnippet":{},"sitemap-general":{"prefix":"https://eiuapp.gitlib.io/gitlab-handbook/"},"fontsettings":{"theme":"white","family":"sans","size":2},"favicon":{"shortcut":"favicon.ico","bookmark":"favicon.ico"},"lightbox":{"jquery":true,"sameUuid":false},"page-toc-button":{},"back-to-top-button":{},"prism-themes":{},"github-buttons":{"repo":"eiuapp/gitlab-handbook","types":["star"],"size":"small"},"3-ba":{"configuration":"auto","token":"11f7d254cfa4e0ca44b175c66d379ecc"},"ga":{"configuration":"auto","token":"UA-93485976-1"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"showLevel":true,"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}},"search-plus":{}},"theme":"default","author":"eiuapp","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Gitlab Handbook - Gitlab 实践指南 by eiuapp","language":"zh-hans","links":{"sidebar":{"Gitlab Handbook":"https://eiuapp.gitlib.io/gitlab-handbook/"}},"gitbook":"*","description":"Gitlab Handbook - Gitlab 实践指南 2019年 by eiuapp "},"file":{"path":"post/gitlab-node-project-cicd.md","mtime":"2020-05-28T03:07:11.737Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-05-28T03:08:43.077Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-github/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-splitter/splitter.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-page-toc-button/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-editlink/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-back-to-top-button/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-plus/jquery.mark.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-plus/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-github-buttons/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-3-ba/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lightbox/js/lightbox.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-adsense/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-ga/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

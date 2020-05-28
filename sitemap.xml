@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:mobile="http://www.google.com/schemas/sitemap-mobile/1.0" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+<url> <loc>https://eiuapp.gitlib.io/gitlab-handbook/</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
+<url> <loc>https://eiuapp.gitlib.io/gitlab-handbook/post/env.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
+<url> <loc>https://eiuapp.gitlib.io/gitlab-handbook/post/install-gitlab-with-docker.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
+<url> <loc>https://eiuapp.gitlib.io/gitlab-handbook/post/not-allowed-to-push-code-to-protected-branches.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
+<url> <loc>https://eiuapp.gitlib.io/gitlab-handbook/post/gitlab-protected-branches.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
+<url> <loc>https://eiuapp.gitlib.io/gitlab-handbook/post/gitlab-change-url.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
+<url> <loc>https://eiuapp.gitlib.io/gitlab-handbook/post/gitlab-runner.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
+<url> <loc>https://eiuapp.gitlib.io/gitlab-handbook/post/gitlab-runner-startup-but-gitlab-ce-not-startup.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
+<url> <loc>https://eiuapp.gitlib.io/gitlab-handbook/post/gitlab-faq.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
+<url> <loc>https://eiuapp.gitlib.io/gitlab-handbook/post/gitlab-node-project-cicd.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
+<url> <loc>https://eiuapp.gitlib.io/gitlab-handbook/post/project-cannot-set-domain.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
+</urlset>

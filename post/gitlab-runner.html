@@ -1,0 +1,834 @@
+
+<!DOCTYPE HTML>
+<html lang="zh-hans" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>gitlab-runner安装与使用 · Gitlab Handbook - Gitlab 实践指南 by eiuapp</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="eiuapp">
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-splitter/splitter.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-page-toc-button/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-back-to-top-button/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search-plus/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-tbfed-pagefooter/footer.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-prism/prism-ghcolors.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-lightbox/css/lightbox.min.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="gitlab-runner-startup-but-gitlab-ce-not-startup.html" />
+    
+    
+
+    
+        <link rel="shortcut icon" href='../favicon.ico' type="image/x-icon">
+    
+    
+        <link rel="bookmark" href='../favicon.ico' type="image/x-icon">
+    
+    
+    
+
+    <style>
+    @media only screen and (max-width: 640px) {
+        .book-header .hidden-mobile {
+            display: none;
+        }
+    }
+    </style>
+    <script>
+        window["gitbook-plugin-github-buttons"] = {"repo":"eiuapp/gitlab-handbook","types":["star"],"size":"small"};
+    </script>
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="输入并搜索" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+    
+        
+        <li>
+            <a href="https://eiuapp.gitlib.io/gitlab-handbook/" target="_blank" class="custom-link">Gitlab Handbook</a>
+        </li>
+    
+    
+
+    
+    <li class="divider"></li>
+    
+
+    
+        
+        <li class="header">序言</li>
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                        <b>1.1.</b>
+                    
+                    前言
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="env.html">
+            
+                <a href="env.html">
+            
+                    
+                        <b>1.2.</b>
+                    
+                    环境
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">自建gitlab</li>
+        
+        
+    
+        <li class="chapter " data-level="2.1" >
+            
+                <span>
+            
+                    
+                        <b>2.1.</b>
+                    
+                    install
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.1.1" data-path="install-gitlab-with-docker.html">
+            
+                <a href="install-gitlab-with-docker.html">
+            
+                    
+                        <b>2.1.1.</b>
+                    
+                    docker安装gitlab
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2" >
+            
+                <span>
+            
+                    
+                        <b>2.2.</b>
+                    
+                    protected branches
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.2.1" data-path="not-allowed-to-push-code-to-protected-branches.html">
+            
+                <a href="not-allowed-to-push-code-to-protected-branches.html">
+            
+                    
+                        <b>2.2.1.</b>
+                    
+                    不能push到仓库
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.2" data-path="gitlab-protected-branches.html">
+            
+                <a href="gitlab-protected-branches.html">
+            
+                    
+                        <b>2.2.2.</b>
+                    
+                    gitlab 设置了 protected branches
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.3" data-path="gitlab-change-url.html">
+            
+                <a href="gitlab-change-url.html">
+            
+                    
+                        <b>2.2.3.</b>
+                    
+                    gitlab域名修改
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3" >
+            
+                <span>
+            
+                    
+                        <b>2.3.</b>
+                    
+                    gitlab-runner
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter active" data-level="2.3.1" data-path="gitlab-runner.html">
+            
+                <a href="gitlab-runner.html">
+            
+                    
+                        <b>2.3.1.</b>
+                    
+                    gitlab-runner安装与使用
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3.2" data-path="gitlab-runner-startup-but-gitlab-ce-not-startup.html">
+            
+                <a href="gitlab-runner-startup-but-gitlab-ce-not-startup.html">
+            
+                    
+                        <b>2.3.2.</b>
+                    
+                    gitlab-runner先启动报错
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4" >
+            
+                <span>
+            
+                    
+                        <b>2.4.</b>
+                    
+                    common faq
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.4.1" data-path="gitlab-faq.html">
+            
+                <a href="gitlab-faq.html">
+            
+                    
+                        <b>2.4.1.</b>
+                    
+                    gitlab faq
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.5" >
+            
+                <span>
+            
+                    
+                        <b>2.5.</b>
+                    
+                    gitlab CICD
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.5.1" data-path="gitlab-node-project-cicd.html">
+            
+                <a href="gitlab-node-project-cicd.html">
+            
+                    
+                        <b>2.5.1.</b>
+                    
+                    gitlab cicd 以 nodejs 项目为例
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.6" >
+            
+                <span>
+            
+                    
+                        <b>2.6.</b>
+                    
+                    gitlab password
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.6.1" data-path="gitlab-change-password.">
+            
+                <span>
+            
+                    
+                        <b>2.6.1.</b>
+                    
+                    gitlab change password
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="header">gitlab.com</li>
+        
+        
+    
+        <li class="chapter " data-level="3.1" >
+            
+                <span>
+            
+                    
+                        <b>3.1.</b>
+                    
+                    gitlab pages
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.1.1" data-path="project-cannot-set-domain.html">
+            
+                <a href="project-cannot-set-domain.html">
+            
+                    
+                        <b>3.1.1.</b>
+                    
+                    project不能使用个人域名
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="header">未来</li>
+        
+        
+    
+
+    
+        
+        <li class="header">相关资源</li>
+        
+        
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            本书使用 GitBook 发布
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >gitlab-runner安装与使用</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div class="search-plus" id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <p>gitlab-runner&#x5B89;&#x88C5;&#x4E0E;&#x4F7F;&#x7528;</p>
+<h2 id="env">env</h2>
+<ul>
+<li>env-1 tl-lan-server-a</li>
+</ul>
+<h2 id="step">step</h2>
+<pre class="language-"><code class="lang-bash"><span class="token function">sudo</span> docker run -d --name gitlab-runner --restart always -v /var/run/docker.sock:/var/run/docker.sock -v /srv/gitlab-runner/config:/etc/gitlab-runner gitlab/gitlab-runner:ubuntu-v11.11.1
+ubuntu@utuntu:~/lcnx/aliyun/tomcat-data$ docker <span class="token function">ps</span>
+CONTAINER ID        IMAGE                                  COMMAND                  CREATED             STATUS                  PORTS                                                               NAMES
+640f0e0c3642        gitlab/gitlab-runner:ubuntu-v11.11.1   <span class="token string">&quot;/usr/bin/dumb-init &#x2026;&quot;</span>   <span class="token number">27</span> hours ago        Up <span class="token number">27</span> hours                                                                                 gitlab-runner
+b4c4ccdd3baa        gitlab/gitlab-ce:11.9.1-ce.0           <span class="token string">&quot;/assets/wrapper&quot;</span>        <span class="token number">33</span> hours ago        Up <span class="token number">33</span> hours <span class="token punctuation">(</span>healthy<span class="token punctuation">)</span>   <span class="token number">0.0</span>.0.0:22-<span class="token operator">&gt;</span><span class="token number">22</span>/tcp, <span class="token number">0.0</span>.0.0:12280-<span class="token operator">&gt;</span><span class="token number">80</span>/tcp, <span class="token number">0.0</span>.0.0:12443-<span class="token operator">&gt;</span><span class="token number">443</span>/tcp   gitlab-ce-11.9.1-2
+</code></pre>
+<ul>
+<li><a href="http://walterinsh.github.io/2016/04/18/using-gitlab-ci.html" target="_blank">http://walterinsh.github.io/2016/04/18/using-gitlab-ci.html</a></li>
+<li><a href="https://www.cnblogs.com/xishuai/p/ubuntu-install-gitlab-runner-with-docker.html" target="_blank">https://www.cnblogs.com/xishuai/p/ubuntu-install-gitlab-runner-with-docker.html</a></li>
+</ul>
+<pre class="language-"><code class="lang-bash">ubuntu@utuntu:~/lcnx/aliyun/tomcat-data$ docker <span class="token builtin class-name">exec</span> -it gitlab-runner gitlab-runner register
+Runtime platform                                    <span class="token assign-left variable">arch</span><span class="token operator">=</span>amd64 <span class="token assign-left variable">os</span><span class="token operator">=</span>linux <span class="token assign-left variable">pid</span><span class="token operator">=</span><span class="token number">121</span> <span class="token assign-left variable">revision</span><span class="token operator">=</span>5a147c92 <span class="token assign-left variable">version</span><span class="token operator">=</span><span class="token number">11.11</span>.1
+Running <span class="token keyword">in</span> system-mode.
+
+Please enter the gitlab-ci coordinator URL <span class="token punctuation">(</span>e.g. https://gitlab.com/<span class="token punctuation">)</span>:
+http://192.168.168.137:12280/
+Please enter the gitlab-ci token <span class="token keyword">for</span> this runner:
+5nnXzbP4cYe3qPUvgJ_z
+Please enter the gitlab-ci description <span class="token keyword">for</span> this runner:
+<span class="token punctuation">[</span>640f0e0c3642<span class="token punctuation">]</span>: my-runner
+Please enter the gitlab-ci tags <span class="token keyword">for</span> this runner <span class="token punctuation">(</span>comma separated<span class="token punctuation">)</span>:
+my-tag
+Registering runner<span class="token punctuation">..</span>. succeeded                     <span class="token assign-left variable">runner</span><span class="token operator">=</span>5nnXzbP4
+Please enter the executor: docker-windows, docker-ssh, shell, virtualbox, docker-ssh+machine, docker, ssh, docker+machine, kubernetes, parallels:
+docker
+Please enter the default Docker image <span class="token punctuation">(</span>e.g. ruby:2.1<span class="token punctuation">)</span>:
+node:11.15.0
+Runner registered successfully. Feel <span class="token function">free</span> to start it, but <span class="token keyword">if</span> it&apos;s running already the config should be automatically reloaded<span class="token operator">!</span>
+ubuntu@utuntu:~/lcnx/aliyun/tomcat-data$
+</code></pre>
+<h2 id="&#x9A8C;&#x8BC1;">&#x9A8C;&#x8BC1;</h2>
+<p>chrome: <a href="http://192.168.168.137:12280/admin/runners" target="_blank">http://192.168.168.137:12280/admin/runners</a> &#x5E94;&#x8BE5;&#x80FD;&#x770B;&#x5230; gitlab runners &#x5C31;&#x662F;&#x6210;&#x529F;&#x4E86;.</p>
+<h2 id="&#x67E5;&#x770B;-version-status">&#x67E5;&#x770B; version, status</h2>
+<pre class="language-"><code class="lang-bash">ubuntu@utuntu:~/lcnx/local$ docker <span class="token builtin class-name">exec</span> -it gitlab-runner gitlab-runner --version
+Version:      <span class="token number">11.11</span>.1
+Git revision: 5a147c92
+Git branch:   <span class="token number">11</span>-11-stable
+GO version:   go1.8.7
+Built:        <span class="token number">2019</span>-05-24T12:32:58+0000
+OS/Arch:      linux/amd64
+ubuntu@utuntu:~/lcnx/local$ docker <span class="token builtin class-name">exec</span> -it gitlab-runner gitlab-runner status
+Runtime platform                                    <span class="token assign-left variable">arch</span><span class="token operator">=</span>amd64 <span class="token assign-left variable">os</span><span class="token operator">=</span>linux <span class="token assign-left variable">pid</span><span class="token operator">=</span><span class="token number">165</span> <span class="token assign-left variable">revision</span><span class="token operator">=</span>5a147c92 <span class="token assign-left variable">version</span><span class="token operator">=</span><span class="token number">11.11</span>.1
+gitlab-runner: Service is not running.
+ubuntu@utuntu:~/lcnx/local$
+</code></pre>
+<h2 id="&#x4F7F;&#x7528;">&#x4F7F;&#x7528;</h2>
+<h3 id="error-port-80-connection-refused">error: <code>port 80: Connection refused</code></h3>
+<p>&#x62A5;&#x9519;&#x5982;&#x4E0B;:</p>
+<pre class="language-"><code>Running with gitlab-runner 11.11.1 (5a147c92)
+  on my-runner kj6xC-zB
+Using Docker executor with image node:latest ...
+Pulling docker image node:latest ...
+Using docker image sha256:6be2fabd419658c51f44d7c2a1a4a6fd172125c11e718a7eb989e74b8b2f9e5a for node:latest ...
+Running on runner-kj6xC-zB-project-2-concurrent-0 via 640f0e0c3642...
+Reinitialized existing Git repository in /builds/FED/lvchuang-web/.git/
+Fetching changes...
+fatal: unable to access &apos;http://gitlab-ci-token:xxxxxxxxxxxxxxxxxxxx@192.168.168.137/FED/lvchuang-web.git/&apos;: Failed to connect to 192.168.168.137 port 80: Connection refused
+ERROR: Job failed: exit code 1
+</code></pre><p><a href="https://gitlab.com/gitlab-org/gitlab-runner/issues/3091" target="_blank">https://gitlab.com/gitlab-org/gitlab-runner/issues/3091</a></p>
+<p>&#x56E0;&#x4E3A;&#x8FD9;&#x91CC;,&#x6211;&#x4EEC;&#x7684; gitlab url &#x662F; 192.168.168.137:12080, &#x4F46;&#x662F;&#x8FD9;&#x91CC;&#x62A5;&#x7684;&#x662F; 80: Connection refused &#x6240;&#x4EE5;&#x5148;&#x5C1D;&#x8BD5;&#x89E3;&#x51B3;&#x8FD9;&#x4E2A; port &#x4E0D;&#x4E00;&#x81F4;&#x7684;&#x95EE;&#x9898;.</p>
+<p>&#x6211;&#x8FD9;&#x91CC;,&#x5148;&#x7B80;&#x5355;&#x5904;&#x7406;, &#x628A;gitlab dokcer &#x76F4;&#x63A5;&#x4F7F;&#x7528; 80 &#x7AEF;&#x53E3;.</p>
+<p>&#x7136;&#x540E;,&#x53D1;&#x73B0;,&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x4E86;.</p>
+<h3 id="pending">pending</h3>
+<pre class="language-"><code>This job is stuck because you don&apos;t have any active runners online with any of these tags assigned to them: my-tag
+Go to Runners page
+</code></pre><p>&#x56E0;&#x4E3A;&#x6211;&#x7684;&#x914D;&#x7F6E;&#x4E0E;&#x5B98;&#x7F51;&#x662F;&#x76F8;&#x540C;&#x7684;,&#x8FD8;&#x662F;&#x8981;&#x56DE;&#x5230;&#x5B98;&#x7F51;&#x6765;&#x770B;&#x4E00;&#x4E0B;&#x65E5;&#x5FD7;</p>
+<p><a href="https://docs.gitlab.com/runner/install/docker.html#reading-gitlab-runner-logs" target="_blank">https://docs.gitlab.com/runner/install/docker.html#reading-gitlab-runner-logs</a></p>
+<p>For example, if GitLab Runner was started with the following command:</p>
+<pre class="language-"><code class="lang-bash">docker run -d --name gitlab-runner --restart always <span class="token punctuation">\</span>
+  -v /var/run/docker.sock:/var/run/docker.sock <span class="token punctuation">\</span>
+  -v /srv/gitlab-runner/config:/etc/gitlab-runner <span class="token punctuation">\</span>
+  gitlab/gitlab-runner:latest
+</code></pre>
+<p>you may get the logs with:</p>
+<pre class="language-"><code class="lang-bash">docker logs gitlab-runner
+</code></pre>
+<p>&#x8F93;&#x51FA;&#x4FE1;&#x606F;:</p>
+<pre class="language-"><code>WARNING: Checking for jobs... failed                runner=VE3S_jfp status=couldn&apos;t execute POST against http://192.168.168.137/api/v4/jobs/request: Post http://192.168.168.137/api/v4/jobs/request: dial tcp 192.168.168.137:80: i/o timeout
+WARNING: Checking for jobs... failed                runner=VE3S_jfp status=couldn&apos;t execute POST against http://192.168.168.137/api/v4/jobs/request: Post http://192.168.168.137/api/v4/jobs/request: dial tcp 192.168.168.137:80: i/o timeout
+WARNING: Checking for jobs... failed                runner=VE3S_jfp status=couldn&apos;t execute POST against http://192.168.168.137/api/v4/jobs/request: Post http://192.168.168.137/api/v4/jobs/request: dial tcp 192.168.168.137:80: i/o timeout
+</code></pre><p>&#x8BF4;&#x660E;&#x662F; container &#x5230;&#x8FBE;&#x4E0D;&#x4E86; 192.168.168.137:80, &#x90A3;&#x4E48;, &#x5148;&#x68C0;&#x67E5;&#x4E00;&#x4E0B; &#x9632;&#x706B;&#x5899;. &#x679C;&#x7136;,&#x5C31;&#x662F;&#x8FD9;&#x4E2A;&#x95EE;&#x9898;.</p>
+<pre class="language-"><code class="lang-bash"><span class="token function">sudo</span> ufw allow from <span class="token number">172.17</span>.0.1/16  to any port <span class="token number">80</span>
+</code></pre>
+<p>&#x91CD;&#x8BD5;.
+&#x6210;&#x529F;.</p>
+<h3 id="gitlab-runner-permission-deny">gitlab runner permission deny</h3>
+<p>&#x53EF;&#x80FD;&#x662F;:</p>
+<ul>
+<li>&#x7535;&#x8111;&#x91CD;&#x542F;&#x4E86;</li>
+<li>docker &#x7684;&#x6570;&#x636E;&#x76D8;&#x653E;&#x5728;&#x4E86;&#x5176;&#x5B83;&#x786C;&#x76D8;</li>
+</ul>
+<p>&#x5BFC;&#x81F4;:</p>
+<pre class="language-"><code class="lang-shell">root@utuntu:/home/ubuntu/fangyuan/local/fs.delete.20191230<span class="token comment"># docker ps | grep gitlab-runner</span>
+65fa431b0ec1        gitlab/gitlab-runner:ubuntu-v11.11.1   <span class="token string">&quot;/usr/bin/dumb-init &#x2026;&quot;</span>   <span class="token number">6</span> months ago        Up <span class="token number">6</span> hours                                                                              gitlab-runner-shell
+be6755a2746c        gitlab/gitlab-runner:ubuntu-v11.11.1   <span class="token string">&quot;/usr/bin/dumb-init &#x2026;&quot;</span>   <span class="token number">7</span> months ago        Up <span class="token number">6</span> hours                                                                              gitlab-runner
+root@utuntu:/home/ubuntu/fangyuan/local/fs.delete.20191230<span class="token comment"># docker logs -f gitlab-runner</span>
+<span class="token punctuation">..</span>.
+WARNING: Checking <span class="token keyword">for</span> jobs<span class="token punctuation">..</span>. failed                <span class="token assign-left variable">runner</span><span class="token operator">=</span>VE3S_jfp <span class="token assign-left variable">status</span><span class="token operator">=</span>couldn<span class="token string">&apos;t execute POST against http://192.168.168.137/api/v4/jobs/request: Post http://192.168.168.137/api/v4/jobs/request: read tcp 172.17.0.3:59338-&gt;192.168.168.137:80: read: connection reset by peer
+WARNING: Checking for jobs... failed                runner=2K7oPJtf status=couldn&apos;</span>t execute POST against http://192.168.168.137/api/v4/jobs/request: Post http://192.168.168.137/api/v4/jobs/request: <span class="token builtin class-name">read</span> tcp <span class="token number">172.17</span>.0.3:59346-<span class="token operator">&gt;</span><span class="token number">192.168</span>.168.137:80: read: connection reset by peer
+WARNING: Checking <span class="token keyword">for</span> jobs<span class="token punctuation">..</span>. failed                <span class="token assign-left variable">runner</span><span class="token operator">=</span>VE3S_jfp <span class="token assign-left variable">status</span><span class="token operator">=</span><span class="token number">502</span> Bad Gateway
+WARNING: Checking <span class="token keyword">for</span> jobs<span class="token punctuation">..</span>. failed                <span class="token assign-left variable">runner</span><span class="token operator">=</span>2K7oPJtf <span class="token assign-left variable">status</span><span class="token operator">=</span><span class="token number">502</span> Bad Gateway
+</code></pre>
+<p>jobs &#x4E2D;&#x4F1A;&#x663E;&#x793A;&#x5BF9; &#x67D0;&#x4E2A;&#x6587;&#x4EF6;&#x5939; <code>permission deny</code>, &#x5982;:</p>
+<pre class="language-"><code>Running with gitlab-runner 10.5.0 (10.5.0)
+  on api-deploy-runner obhhKvSY
+Using Shell executor...
+Running on utuntu...
+Fetching changes...
+HEAD is now at 8bd0543 fix pms_grant_option_stage_detail saveNewBulk
+From http://192.168.168.137/fangyuan/fangyuan-server
+   8bd0543..749e544  dev        -&gt; origin/dev
+Checking out 749e5449 as dev...
+Skipping Git submodules setup
+$ echo &quot;hello fangyuan-server&quot;
+hello fangyuan-server
+$ echo &quot;deploy_test&quot;
+deploy_test
+$ echo $PWD &amp;&amp; ls ~
+/home/ubuntu/gitlabRunner/builds/obhhKvSY/0/fangyuan/fangyuan-server
+logs
+$ bash /home/ubuntu/lcnx/local/scripts/fangyuan-server/deploy/deploy-test.sh
+Mon Dec 30 15:08:24 CST 2019
+20191230150824
+fatal: Unable to create &apos;/home/ubuntu/fangyuan/local/fangyuan-server-run-start/.git/index.lock&apos;: Permission denied
+Cannot save the current index state
+error: cannot open .git/FETCH_HEAD: Permission denied
+cp: cannot create regular file &apos;config/config.prod.js&apos;: Permission denied
+...
+...
+...
+npm ERR! A complete log of this run can be found in:
+npm ERR!     /var/lib/gitlab-runner/.npm/_logs/2019-12-30T07_08_29_657Z-debug.log
+docker
+Job succeeded
+</code></pre><p>&#x4F46;&#x662F;,&#x540E;&#x6765;,&#x53C8;&#x65F6;&#x4E0D;&#x65F6; &#x6CA1;&#x6709;&#x8FD9;&#x4E2A; <code>permission denied</code>.</p>
+<h1 id="">#</h1>
+<h2 id="&#x8BF4;&#x660E;">&#x8BF4;&#x660E;</h2>
+<h3 id="install-example">install example</h3>
+<h4 id="install-gitlab-ci">install gitlab-ci</h4>
+<pre class="language-"><code class="lang-bash"><span class="token function">sudo</span> docker run --detach <span class="token punctuation">\</span>
+  --restart always <span class="token punctuation">\</span>
+  --hostname <span class="token number">192.168</span>.168.137 <span class="token punctuation">\</span>
+  --publish <span class="token number">12443</span>:443 --publish <span class="token number">80</span>:80 --publish <span class="token number">22</span>:22 <span class="token punctuation">\</span>
+  --name gitlab-ce-11.9.1-2 <span class="token punctuation">\</span>
+  --volume /srv/gitlab9.1/config:/etc/gitlab <span class="token punctuation">\</span>
+  --volume /srv/gitlab9.1/logs:/var/log/gitlab <span class="token punctuation">\</span>
+  --volume /srv/gitlab9.1/data:/var/opt/gitlab <span class="token punctuation">\</span>
+  gitlab/gitlab-ce:11.9.1-ce.0
+</code></pre>
+<h4 id="gitlab-runner-docker">gitlab-runner-docker</h4>
+<pre class="language-"><code class="lang-bash"><span class="token function">sudo</span> docker run -d --name gitlab-runner --restart always -v /var/run/docker.sock:/var/run/docker.sock -v /srv/gitlab-runner/config:/etc/gitlab-runner gitlab/gitlab-runner:ubuntu-v11.11.1
+</code></pre>
+<h4 id="gitlab-runner-shell">gitlab-runner-shell</h4>
+<pre class="language-"><code class="lang-bash"><span class="token function">sudo</span> docker run -d --name gitlab-runner-shell --restart always -v /var/run/docker.sock:/var/run/docker.sock -v /srv/gitlab-runner-ubuntu-v11/shell/config:/etc/gitlab-runner gitlab/gitlab-runner:ubuntu-v11.11.1
+</code></pre>
+<h5 id="runner-token">runner token</h5>
+<p>&#x542F;&#x52A8;&#x540E;&#x770B;&#x4E00;&#x4E0B;</p>
+<pre class="language-"><code class="lang-bash">root@utuntu:/srv/gitlab-runner-ubuntu-v11/shell/config<span class="token comment"># cat config.toml</span>
+concurrent <span class="token operator">=</span> <span class="token number">1</span>
+check_interval <span class="token operator">=</span> <span class="token number">0</span>
+
+<span class="token punctuation">[</span>session_server<span class="token punctuation">]</span>
+  session_timeout <span class="token operator">=</span> <span class="token number">1800</span>
+
+<span class="token punctuation">[</span><span class="token punctuation">[</span>runners<span class="token punctuation">]</span><span class="token punctuation">]</span>
+  name <span class="token operator">=</span> <span class="token string">&quot;shell-runner&quot;</span>
+  url <span class="token operator">=</span> <span class="token string">&quot;http://192.168.168.137/&quot;</span>
+  token <span class="token operator">=</span> <span class="token string">&quot;S-j8EMnmzTbxRNPyCpad&quot;</span>
+  executor <span class="token operator">=</span> <span class="token string">&quot;shell&quot;</span>
+  <span class="token punctuation">[</span>runners.custom_build_dir<span class="token punctuation">]</span>
+  <span class="token punctuation">[</span>runners.cache<span class="token punctuation">]</span>
+    <span class="token punctuation">[</span>runners.cache.s3<span class="token punctuation">]</span>
+    <span class="token punctuation">[</span>runners.cache.gcs<span class="token punctuation">]</span>
+root@utuntu:/srv/gitlab-runner-ubuntu-v11/shell/config<span class="token comment">#</span>
+</code></pre>
+<p>&#x4E0A;&#x9762;&#x7684;&#x8FD9;&#x4E2A;token&#x503C;<code>S-j8EMnmzTbxRNPyCpad</code>&#x4F1A;&#x663E;&#x793A;&#x5728;<code>docker logs -f gitlab-runner-shell</code>&#x7684;&#x8F93;&#x51FA;&#x4E2D;.</p>
+<footer class="page-footer"><span class="copyright"><p><a href="https://github.com/eiuapp/gitlab-handbook" target="_blank">Gitlab&#x5B9E;&#x8DF5;&#x6307;&#x5357;</a> | <a href="https://github.com/eiuapp/gitlab-handbook" target="_blank">Gitlab&#x5B9E;&#x8DF5;&#x6307;&#x5357;</a></p><p><a href="https://res.cloudinary.com/dmtixvmgt/image/upload/v1539022273/wechat-qrcode_cml5dm.jpg" data-lightbox="2fd927ee-fa64-4eca-8ed5-6bd72b573a3c" target="_blank">&#x70B9;&#x51FB;&#x5173;&#x6CE8;&#x3010;servicemesher&#x3011;&#x516C;&#x4F17;&#x53F7;&#x56DE;&#x590D;&#x3010;&#x52A0;&#x7FA4;&#x3011;&#x52A0;&#x5165;&#x5B66;&#x4E60;&#x7FA4; </a> | </p>Copyright &#xA9; <a href="https://eiuapp.github.io" target="_blank">eiuapp.github.io</a> 2017-2019 all right reserved&#xFF0C;powered by Gitbook</span><span class="footer-modification"> Updated at 
+2020-05-28 03:07:11
+</span></footer>
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                
+                <a href="gitlab-runner-startup-but-gitlab-ce-not-startup.html" class="navigation navigation-next navigation-unique" aria-label="Next page: gitlab-runner先启动报错">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"gitlab-runner安装与使用","level":"2.3.1","depth":2,"next":{"title":"gitlab-runner先启动报错","level":"2.3.2","depth":2,"path":"post/gitlab-runner-startup-but-gitlab-ce-not-startup.md","ref":"post/gitlab-runner-startup-but-gitlab-ce-not-startup.md","articles":[]},"previous":{"title":"gitlab-runner","level":"2.3","depth":1,"ref":"","articles":[{"title":"gitlab-runner安装与使用","level":"2.3.1","depth":2,"path":"post/gitlab-runner.md","ref":"post/gitlab-runner.md","articles":[]},{"title":"gitlab-runner先启动报错","level":"2.3.2","depth":2,"path":"post/gitlab-runner-startup-but-gitlab-ce-not-startup.md","ref":"post/gitlab-runner-startup-but-gitlab-ce-not-startup.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["github","codesnippet","splitter","page-toc-button","editlink","back-to-top-button","-lunr","-search","search-plus","github-buttons@2.1.0","favicon@^0.0.2","tbfed-pagefooter@^0.0.1","3-ba","theme-default","-highlight","prism","prism-themes","sitemap-general","lightbox","adsense","ga"],"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"<p><a href=https://github.com/eiuapp/gitlab-handbook>Gitlab实践指南</a> | <a href=https://github.com/eiuapp/gitlab-handbook>Gitlab实践指南</a></p><p><a href=https://res.cloudinary.com/dmtixvmgt/image/upload/v1539022273/wechat-qrcode_cml5dm.jpg data-lightbox=2fd927ee-fa64-4eca-8ed5-6bd72b573a3c>点击关注【servicemesher】公众号回复【加群】加入学习群 </a> | </p>Copyright © <a href=https://eiuapp.github.io>eiuapp.github.io</a> 2017-2019","modify_label":" Updated at ","modify_format":"YYYY-MM-DD HH:mm:ss"},"prism":{"lang":{"shell":"bash"},"css":["prism-themes/themes/prism-ghcolors.css"]},"github":{"url":"https://eiuapp.gitlib.io/gitlab-handbook/"},"editlink":{"label":"编辑本页","multilingual":false,"base":"https://github.com/eiuapp/gitlab-handbook/blob/master/"},"splitter":{},"adsense":{"client":"ca-pub-4029167986768912","slot":"2445941692","format":"auto","element":".page-inner section","position":"bottom"},"codesnippet":{},"sitemap-general":{"prefix":"https://eiuapp.gitlib.io/gitlab-handbook/"},"fontsettings":{"theme":"white","family":"sans","size":2},"favicon":{"shortcut":"favicon.ico","bookmark":"favicon.ico"},"lightbox":{"jquery":true,"sameUuid":false},"page-toc-button":{},"back-to-top-button":{},"prism-themes":{},"github-buttons":{"repo":"eiuapp/gitlab-handbook","types":["star"],"size":"small"},"3-ba":{"configuration":"auto","token":"11f7d254cfa4e0ca44b175c66d379ecc"},"ga":{"configuration":"auto","token":"UA-93485976-1"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"showLevel":true,"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}},"search-plus":{}},"theme":"default","author":"eiuapp","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Gitlab Handbook - Gitlab 实践指南 by eiuapp","language":"zh-hans","links":{"sidebar":{"Gitlab Handbook":"https://eiuapp.gitlib.io/gitlab-handbook/"}},"gitbook":"*","description":"Gitlab Handbook - Gitlab 实践指南 2019年 by eiuapp "},"file":{"path":"post/gitlab-runner.md","mtime":"2020-05-28T03:07:11.737Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-05-28T03:08:43.077Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-github/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-splitter/splitter.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-page-toc-button/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-editlink/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-back-to-top-button/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-plus/jquery.mark.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-plus/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-github-buttons/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-3-ba/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lightbox/js/lightbox.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-adsense/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-ga/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
